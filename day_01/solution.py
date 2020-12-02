@@ -4,7 +4,17 @@ from itertools import combinations
 from operator import mul
 from typing import List
 
-from utils import read_lines
+from common.files import read_lines
+from common.timing import timer
+
+
+@timer
+def process_expense_report(input_sequence: List[int], tuple_size: int, expected_sum: int) -> int:
+    return compute_product(find_tuple(input_sequence=input_sequence, tuple_size=tuple_size, expected_sum=expected_sum))
+
+
+def compute_product(found_tuple: tuple) -> int:
+    return reduce(mul, found_tuple)
 
 
 def find_tuple(input_sequence: List[int], tuple_size: int, expected_sum: int) -> tuple:
@@ -14,18 +24,16 @@ def find_tuple(input_sequence: List[int], tuple_size: int, expected_sum: int) ->
             return combination
 
 
-def compute_product(found_tuple: tuple) -> int:
-    return reduce(mul, found_tuple)
-
-
 if __name__ == '__main__':
     input_file_path: str = os.path.join(os.path.dirname(__file__), 'input.txt')
     input_list: List[int] = read_lines(input_file_path=input_file_path, line_type=int)
 
     # Part 1
-    pair_result = compute_product(find_tuple(input_sequence=input_list, tuple_size=2, expected_sum=2020))
-    print('Part 1 result :', pair_result)
+    part_1_result: int = process_expense_report(input_sequence=input_list, tuple_size=2, expected_sum=2020)
+    print('Part 1 result :', part_1_result)
 
     # Part 2
-    triplet_result = compute_product(find_tuple(input_sequence=input_list, tuple_size=3, expected_sum=2020))
-    print('Part 2 result :', triplet_result)
+    part_2_result: int = process_expense_report(input_sequence=input_list, tuple_size=3, expected_sum=2020)
+    print('Part 2 result :', part_2_result)
+
+    print()
