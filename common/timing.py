@@ -9,7 +9,7 @@ def timer(func):
         start_time = time_ns()
         result = func(*args, **kwargs)
         end_time = time_ns()
-        print(f'\n%%timeit | {func.__name__} :', format_duration(end_time - start_time))
+        print(f'%%timeit | {func.__name__} :', format_duration(end_time - start_time))
         return result
 
     return wrap

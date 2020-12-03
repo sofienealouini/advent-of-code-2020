@@ -35,5 +35,3 @@ if __name__ == '__main__':
     # Part 2
     part_2_result: int = process_expense_report(input_sequence=input_list, tuple_size=3, expected_sum=2020)
     print('Part 2 result :', part_2_result)
-
-    print()

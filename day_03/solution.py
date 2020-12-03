@@ -36,5 +36,3 @@ if __name__ == '__main__':
     part_2_result = multiply_tree_counts_for_several_slopes(area_map=input_list,
                                                             slopes=[(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)])
     print('Part 2 result :', part_2_result)
-
-    print()

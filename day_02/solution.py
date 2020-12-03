@@ -36,5 +36,3 @@ if __name__ == '__main__':
     # Part 2
     part_2_result: int = count_valid_passwords(input_sequence=input_list, check_function=check_validity_new_policy)
     print('Part 2 result :', part_2_result)
-
-    print()
