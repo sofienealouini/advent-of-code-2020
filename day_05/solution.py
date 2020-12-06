@@ -40,9 +40,9 @@ if __name__ == '__main__':
     input_list: List[str] = read_lines(input_file_path=input_file_path, line_type=str)
 
     # Part 1
-    part_1_result = find_seat(input_list, get_max_id)
+    part_1_result: int = find_seat(seats=input_list, search_function=get_max_id)
     print('Part 1 result :', part_1_result)
 
     # Part 2
-    part_2_result = find_seat(input_list, get_missing_id)
+    part_2_result: int = find_seat(seats=input_list, search_function=get_missing_id)
     print('Part 2 result :', part_2_result)

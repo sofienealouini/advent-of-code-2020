@@ -29,10 +29,10 @@ if __name__ == '__main__':
     input_list: List[str] = read_lines(input_file_path=input_file_path, line_type=str)
 
     # Part 1
-    part_1_result = multiply_tree_counts_for_several_slopes(area_map=input_list, slopes=[(3, 1)])
+    part_1_result: int = multiply_tree_counts_for_several_slopes(area_map=input_list, slopes=[(3, 1)])
     print('Part 1 result :', part_1_result)
 
     # Part 2
-    part_2_result = multiply_tree_counts_for_several_slopes(area_map=input_list,
-                                                            slopes=[(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)])
+    part_2_result: int = multiply_tree_counts_for_several_slopes(area_map=input_list,
+                                                                 slopes=[(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)])
     print('Part 2 result :', part_2_result)

@@ -53,9 +53,13 @@ if __name__ == '__main__':
     fields_to_check: List[str] = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
 
     # Part 1
-    part_1_result = count_valid_passports(input_list, fields_to_check, validate_presence)
+    part_1_result: int = count_valid_passports(passports=input_list,
+                                               mandatory_fields=fields_to_check,
+                                               validation_function=validate_presence)
     print('Part 1 result :', part_1_result)
 
     # Part 2
-    part_2_result = count_valid_passports(input_list, fields_to_check, validate_presence_and_value)
+    part_2_result: int = count_valid_passports(passports=input_list,
+                                               mandatory_fields=fields_to_check,
+                                               validation_function=validate_presence_and_value)
     print('Part 2 result :', part_2_result)
