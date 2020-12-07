@@ -1,4 +1,5 @@
 import os
+import re
 from functools import reduce
 from typing import List, Dict, Tuple, Set, Callable, Generator
 
@@ -16,8 +17,7 @@ def count_bags(bag_color: str,
 
 def count_all_sub_bags(bag_color: str, rule_dict: Dict[str, List[Tuple[int, str]]]) -> int:
     sub_bags_with_counts: List[Tuple[int, str]] = rule_dict[bag_color]
-    return sum([sub_bag[0] * (1 + count_all_sub_bags(sub_bag[1], rule_dict))
-                for sub_bag in sub_bags_with_counts])
+    return sum([sub_bag[0] * (1 + count_all_sub_bags(sub_bag[1], rule_dict)) for sub_bag in sub_bags_with_counts])
 
 
 def count_distinct_containers(bag_color: str, rule_dict: Dict[str, List[Tuple[int, str]]]) -> int:
@@ -31,19 +31,14 @@ def find_distinct_sub_bags(bag_color: str, rule_dict: Dict[str, List[Tuple[int, 
 
 
 def build_rule_dictionary(rules: List[str]) -> Dict[str, List[Tuple[int, str]]]:
-    return reduce(lambda x, y: {**x, **y}, (parse_rule(rule) for rule in rules))
+    return reduce(lambda x, y: {**x, **y}, (parse_single_rule(rule) for rule in rules))
 
 
-def parse_rule(rule: str) -> Dict[str, List[Tuple[int, str]]]:
-    tokens = rule.replace('.', '').replace(',', '').split()
-    main_color = ' '.join([tokens[0], tokens[1]])
-    res = {main_color: []}
-    for i in range(len(tokens)):
-        if tokens[i].isnumeric():
-            sub_bag_number = int(tokens[i])
-            sub_bag_color = ' '.join([tokens[i + 1], tokens[i + 2]])
-            res[main_color].append((sub_bag_number, sub_bag_color))
-    return res
+def parse_single_rule(rule: str) -> Dict[str, List[Tuple[int, str]]]:
+    main_bag_color: str = re.search(r'[a-z]+ [a-z]+', string=rule).group()
+    sub_bags: List[Tuple[int, str]] = [(int(sub_bag[0]), sub_bag[2:])
+                                       for sub_bag in re.findall(r'\d [a-z]+ [a-z]+', string=rule)]
+    return {main_bag_color: sub_bags}
 
 
 if __name__ == '__main__':
