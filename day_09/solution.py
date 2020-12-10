@@ -7,7 +7,7 @@ from common.timing import timer
 
 
 @timer
-def solve(xmas_encrypted_data: List[int], hacking_method: Callable[[List[int]], int]) -> int:
+def hack(xmas_encrypted_data: List[int], hacking_method: Callable[[List[int]], int]) -> int:
     return hacking_method(xmas_encrypted_data)
 
 
@@ -39,9 +39,9 @@ if __name__ == '__main__':
     input_list: List[int] = read_lines(input_file_path=input_file_path, line_type=int)
 
     # Part 1
-    part_1_result: int = solve(input_list, hacking_method=find_first_invalid_number)
+    part_1_result: int = hack(input_list, hacking_method=find_first_invalid_number)
     print('Part 1 result :', part_1_result)
 
     # Part 2
-    part_2_result: int = solve(input_list, hacking_method=find_encryption_weakness)
+    part_2_result: int = hack(input_list, hacking_method=find_encryption_weakness)
     print('Part 2 result :', part_2_result)
