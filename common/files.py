@@ -14,3 +14,8 @@ def read_blocks(input_file_path: str) -> List[str]:
 def read_list_of_lists(input_file_path: str) -> List[List[str]]:
     with open(input_file_path, 'r') as input_file:
         return [block.split('\n') for block in input_file.read().split('\n\n')]
+
+
+def read_grid(input_file_path: str) -> List[List[str]]:
+    with open(input_file_path, 'r') as input_file:
+        return [list(line) for line in input_file.read().split('\n')]
