@@ -1,5 +1,6 @@
 import os
-from math import prod
+from functools import reduce
+from math import gcd
 from typing import List, Tuple
 
 from common.timing import timer
@@ -22,8 +23,8 @@ def find_synchronized_buses(departure: int, buses_with_offsets: List[Tuple[int, 
     return [bus for bus, offset in buses_with_offsets if (departure + offset) % bus == 0]
 
 
-def least_common_multiple(distinct_primes_list: List[int]) -> int:
-    return prod(distinct_primes_list)
+def least_common_multiple(numbers: List[int]) -> int:
+    return reduce(lambda a, b: a * b // gcd(a, b), numbers)
 
 
 @timer
