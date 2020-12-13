@@ -87,10 +87,12 @@ if __name__ == '__main__':
     part_1_result: int = count_neighbors_after_map_stabilizes(seat_map=input_list,
                                                               threshold=4,
                                                               neighbor_counter=count_adjacent_neighbors)
+    assert part_1_result == 2386
     print('Part 1 result :', part_1_result)
 
     # Part 2
     part_2_result: int = count_neighbors_after_map_stabilizes(seat_map=input_list,
                                                               threshold=5,
                                                               neighbor_counter=count_nearest_neighbors)
+    assert part_2_result == 2091
     print('Part 2 result :', part_2_result)

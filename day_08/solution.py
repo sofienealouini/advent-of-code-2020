@@ -58,8 +58,10 @@ if __name__ == '__main__':
 
     # Part 1
     part_1_result: int = evaluate_accumulator(input_list, fix_program=False)
+    assert part_1_result == 1915
     print('Part 1 result :', part_1_result)
 
     # Part 2
     part_2_result: int = evaluate_accumulator(input_list, fix_program=True)
+    assert part_2_result == 944
     print('Part 2 result :', part_2_result)

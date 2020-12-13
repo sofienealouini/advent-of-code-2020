@@ -30,9 +30,11 @@ if __name__ == '__main__':
 
     # Part 1
     part_1_result: int = multiply_tree_counts_for_several_slopes(area_map=input_list, slopes=[(3, 1)])
+    assert part_1_result == 211
     print('Part 1 result :', part_1_result)
 
     # Part 2
     part_2_result: int = multiply_tree_counts_for_several_slopes(area_map=input_list,
                                                                  slopes=[(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)])
+    assert part_2_result == 3584591857
     print('Part 2 result :', part_2_result)

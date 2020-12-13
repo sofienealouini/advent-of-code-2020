@@ -99,8 +99,10 @@ if __name__ == '__main__':
 
     # Part 1
     part_1_result: int = navigation_distance(input_list, 'simple')
+    assert part_1_result == 1601
     print('Part 1 result :', part_1_result)
 
     # Part 2
     part_2_result: int = navigation_distance(input_list, 'waypoint')
+    assert part_2_result == 13340
     print('Part 2 result :', part_2_result)

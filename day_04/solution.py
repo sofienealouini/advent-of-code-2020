@@ -56,10 +56,12 @@ if __name__ == '__main__':
     part_1_result: int = count_valid_passports(passports=input_list,
                                                mandatory_fields=fields_to_check,
                                                validation_function=validate_presence)
+    assert part_1_result == 228
     print('Part 1 result :', part_1_result)
 
     # Part 2
     part_2_result: int = count_valid_passports(passports=input_list,
                                                mandatory_fields=fields_to_check,
                                                validation_function=validate_presence_and_value)
+    assert part_2_result == 175
     print('Part 2 result :', part_2_result)

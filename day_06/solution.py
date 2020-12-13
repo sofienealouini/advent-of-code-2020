@@ -27,8 +27,10 @@ if __name__ == '__main__':
 
     # Part 1
     part_1_result: int = count_answers(groups=input_list, count_method=answered_by_anyone_in_group)
+    assert part_1_result == 6585
     print('Part 1 result :', part_1_result)
 
     # Part 2
     part_2_result: int = count_answers(groups=input_list, count_method=answered_by_everyone_in_group)
+    assert part_2_result == 3276
     print('Part 2 result :', part_2_result)

@@ -41,8 +41,10 @@ if __name__ == '__main__':
 
     # Part 1
     part_1_result: int = find_seat(seats=input_list, search_function=get_max_id)
+    assert part_1_result == 953
     print('Part 1 result :', part_1_result)
 
     # Part 2
     part_2_result: int = find_seat(seats=input_list, search_function=get_missing_id)
+    assert part_2_result == 615
     print('Part 2 result :', part_2_result)

@@ -54,8 +54,10 @@ if __name__ == '__main__':
 
     # Part 1
     part_1_result: int = compute_joltage_differences_distribution(input_list)
+    assert part_1_result == 2664
     print('Part 1 result :', part_1_result)
 
     # Part 2
     part_2_result: int = count_valid_arrangements(input_list)
+    assert part_2_result == 148098383347712
     print('Part 2 result :', part_2_result)

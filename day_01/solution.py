@@ -30,8 +30,10 @@ if __name__ == '__main__':
 
     # Part 1
     part_1_result: int = process_expense_report(input_sequence=input_list, tuple_size=2, expected_sum=2020)
+    assert part_1_result == 270144
     print('Part 1 result :', part_1_result)
 
     # Part 2
     part_2_result: int = process_expense_report(input_sequence=input_list, tuple_size=3, expected_sum=2020)
+    assert part_2_result == 261342720
     print('Part 2 result :', part_2_result)

@@ -40,8 +40,10 @@ if __name__ == '__main__':
 
     # Part 1
     part_1_result: int = hack(input_list, hacking_method=find_first_invalid_number)
+    assert part_1_result == 1492208709
     print('Part 1 result :', part_1_result)
 
     # Part 2
     part_2_result: int = hack(input_list, hacking_method=find_encryption_weakness)
+    assert part_2_result == 238243506
     print('Part 2 result :', part_2_result)

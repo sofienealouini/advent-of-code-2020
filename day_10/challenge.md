@@ -1,6 +1,6 @@
 # Day 10: Adapter Array
 
-# Part 1
+## Part 1
 
 Patched into the aircraft's data port, you discover weather forecasts of a massive tropical storm. Before you can figure out whether it will impact your vacation plans, however, your device suddenly turns off!
 
@@ -91,7 +91,7 @@ Find a chain that uses all of your adapters to connect the charging outlet to yo
 
 **Your puzzle answer was `2664`.**
 
-# Part 2
+## Part 2
 
 To completely determine whether you have enough adapters, you'll need to figure out how many different ways they can be arranged. Every arrangement needs to connect the charging outlet to your device. The previous rules about when adapters can successfully connect still apply.
 

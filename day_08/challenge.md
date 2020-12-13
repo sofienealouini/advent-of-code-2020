@@ -1,6 +1,6 @@
 # Day 8: Handheld Halting
 
-# Part 1
+## Part 1
 
 Your flight to the major airline hub reaches cruising altitude without incident. While you consider checking the in-flight menu for one of those drinks that come with a little umbrella, you are interrupted by the kid sitting next to you.
 
@@ -52,7 +52,7 @@ Run your copy of the boot code. Immediately before any instruction is executed a
 
 **Your puzzle answer was `1915`**.
 
-# Part 2
+## Part 2
 
 After some careful analysis, you believe that exactly one instruction is corrupted.
 

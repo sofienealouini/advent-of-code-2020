@@ -1,6 +1,6 @@
 import os
 from functools import reduce
-from math import gcd
+from math import lcm
 from typing import List, Tuple
 
 from common.timing import timer
@@ -15,16 +15,12 @@ def first_synchronized_departure(earliest_departure: int, buses_with_offsets: Li
         all_synchronized = len(synchronized_buses) == len(buses_with_offsets)
         if all_synchronized:
             return departure
-        time_to_next_departure: int = 1 if synchronized_buses == [] else least_common_multiple(synchronized_buses)
+        time_to_next_departure: int = 1 if synchronized_buses == [] else reduce(lcm, synchronized_buses)
         departure = departure + time_to_next_departure
 
 
 def find_synchronized_buses(departure: int, buses_with_offsets: List[Tuple[int, int]]) -> List[int]:
     return [bus for bus, offset in buses_with_offsets if (departure + offset) % bus == 0]
-
-
-def least_common_multiple(numbers: List[int]) -> int:
-    return reduce(lambda a, b: a * b // gcd(a, b), numbers)
 
 
 @timer
@@ -54,8 +50,10 @@ if __name__ == '__main__':
 
     # Part 1
     part_1_result: int = first_bus_multiplied_by_wait_time(earliest, buses_with_departure_offsets)
+    assert part_1_result == 4315
     print('Part 1 result :', part_1_result)
 
     # Part 2
     part_2_result: int = first_synchronized_departure(1, buses_with_departure_offsets)
+    assert part_2_result == 556100168221141
     print('Part 2 result :', part_2_result)

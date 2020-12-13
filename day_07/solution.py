@@ -47,8 +47,10 @@ if __name__ == '__main__':
 
     # Part 1
     part_1_result: int = count_bags('shiny gold', input_list, count_distinct_containers)
+    assert part_1_result == 370
     print('Part 1 result :', part_1_result)
 
     # Part 2
     part_2_result: int = count_bags('shiny gold', input_list, count_all_sub_bags)
+    assert part_2_result == 29547
     print('Part 2 result :', part_2_result)

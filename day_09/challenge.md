@@ -1,6 +1,6 @@
 # Day 9: Encoding Error
 
-# Part 1
+## Part 1
 
 With your neighbor happily enjoying their video game, you turn your attention to an open data port on the little screen in the seat in front of you.
 
@@ -54,7 +54,7 @@ The first step of attacking the weakness in the XMAS data is to find the first n
 
 **Your puzzle answer was `1492208709`.**
 
-# Part 2
+## Part 2
 
 The final step in breaking the XMAS encryption relies on the invalid number you just found: you must find a contiguous set of at least two numbers in your list which sum to the invalid number from step 1.
 

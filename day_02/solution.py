@@ -31,8 +31,10 @@ if __name__ == '__main__':
 
     # Part 1
     part_1_result: int = count_valid_passwords(input_sequence=input_list, check_function=check_validity_old_policy)
+    assert part_1_result == 506
     print('Part 1 result :', part_1_result)
 
     # Part 2
     part_2_result: int = count_valid_passwords(input_sequence=input_list, check_function=check_validity_new_policy)
+    assert part_2_result == 443
     print('Part 2 result :', part_2_result)
