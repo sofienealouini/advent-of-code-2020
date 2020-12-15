@@ -26,4 +26,7 @@ function main()
     println("Part 2 result : ", part_2_result)
 end
 
-main()
+
+if abspath(PROGRAM_FILE) == @__FILE__
+    main()
+end

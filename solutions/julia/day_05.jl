@@ -2,15 +2,15 @@ include(joinpath(@__DIR__(), "common", "files.jl"))
 
 
 function get_missing_id(seats::Array{String})::Int
-    ordered_seat_ids::Array{Int} = sort([compute_seat_id(seat) for seat in(seats)])
-    for i in(1:length(ordered_seat_ids))
+    ordered_seat_ids::Array{Int} = sort([compute_seat_id(seat) for seat in (seats)])
+    for i in (1:length(ordered_seat_ids))
         if ordered_seat_ids[i + 1] - ordered_seat_ids[i] == 2
             return ordered_seat_ids[i] + 1
         end
     end
 end
 
-get_max_id(seats::Array{String})::Int = maximum((compute_seat_id(seat) for seat in(seats)))
+get_max_id(seats::Array{String})::Int = maximum((compute_seat_id(seat) for seat in (seats)))
 
 compute_seat_id(seat::String)::Int = get_row(seat) * 8 + get_column(seat)
 
@@ -34,4 +34,7 @@ function main()
     println("Part 2 result : ", part_2_result)
 end
 
-main()
+
+if abspath(PROGRAM_FILE) == @__FILE__
+    main()
+end
