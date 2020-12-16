@@ -1,6 +1,5 @@
 import os
-from functools import reduce
-from operator import mul
+from math import prod
 from typing import List, Tuple
 
 from solutions.python.common.files import read_lines, INPUTS_FOLDER
@@ -9,7 +8,7 @@ from solutions.python.common.timing import timer
 
 @timer
 def multiply_tree_counts_for_several_slopes(area_map: List[str], slopes: List[Tuple[int, int]]) -> int:
-    return reduce(mul, (count_trees(area_map, slope_right, slope_down) for slope_right, slope_down in slopes))
+    return prod(count_trees(area_map, slope_right, slope_down) for slope_right, slope_down in slopes)
 
 
 def count_trees(area_map: List[str], slope_right: int, slope_down: int) -> int:
