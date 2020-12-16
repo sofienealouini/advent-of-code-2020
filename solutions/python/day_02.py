@@ -7,7 +7,7 @@ from solutions.python.common.timing import timer
 
 @timer
 def count_valid_passwords(input_sequence: List[str], check_function: Callable[[str, str, int, int], bool]) -> int:
-    return sum((check_function(*split_line(line)) for line in input_sequence))
+    return sum(check_function(*split_line(line)) for line in input_sequence)
 
 
 def split_line(line: str) -> Tuple[str, str, int, int]:

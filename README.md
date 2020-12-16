@@ -23,6 +23,22 @@ python3 -m solutions.python.all_days
 
 ## Learnings
 
+### Julia
+
+- Any function `f` can be used in a vectorized way on a collection with `f.`
+- Functions can be composed using `∘` : `g ∘ f = x -> g(f(x))`
+- Composite types can be defined using `struct`:
+```
+struct Rule
+    password::String
+    control_letter::Char
+    low_position::Int
+    high_position::Int
+end
+```
+- Variables of this type can be created as follows: `Rule("vptrwwwnwwn", ':', 8, 10)`
+
+### Python
 - `value = dict.get(key, f())`: `f()` is evaluated by default before the lookup in `dict`. 
   - For a lazy evaluation, use: `value = dict[key] if key in dict else f()`.
   

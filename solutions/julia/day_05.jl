@@ -2,7 +2,7 @@ include(joinpath(@__DIR__(), "common", "files.jl"))
 
 
 function get_missing_id(seats::Array{String})::Int
-    ordered_seat_ids::Array{Int} = sort([compute_seat_id(seat) for seat in (seats)])
+    ordered_seat_ids::Array{Int} = sort([compute_seat_id(seat) for seat in(seats)])
     for i in (1:length(ordered_seat_ids))
         if ordered_seat_ids[i + 1] - ordered_seat_ids[i] == 2
             return ordered_seat_ids[i] + 1
