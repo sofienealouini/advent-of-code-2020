@@ -13,7 +13,7 @@ SparseMap = Set[Point]
 @timer
 def count_active_cubes_after_cycles(lines: List[str], dimensions: int, cycles: int) -> int:
     sparse_map: SparseMap = build_sparse_map_of_active_points(lines, dimensions)
-    for _ in range(cycles):
+    for c in range(1, cycles + 1):
         sparse_map = cycle(sparse_map)
     return len(sparse_map)
 
@@ -52,6 +52,24 @@ def build_sparse_map_of_active_points(lines: List[str], dimensions: int) -> Spar
     return set((row, column) + (0,) * (dimensions - 2)
                for row, column in product(range(len(lines)), range(len(lines[0])))
                if lines[row][column] == '#')
+
+
+def draw_active_part_of_3d_universe(sparse_map: SparseMap) -> None:
+    row_min, row_max = min(p[0] for p in sparse_map), max(p[0] for p in sparse_map)
+    col_min, col_max = min(p[1] for p in sparse_map), max(p[1] for p in sparse_map)
+    height_min, height_max = min(p[2] for p in sparse_map), max(p[2] for p in sparse_map)
+    complete_map = [[['.'
+                      for _ in range(col_min, col_max + 1)]
+                     for _ in range(row_min, row_max + 1)]
+                    for _ in range(height_min, height_max + 1)]
+    for point in sparse_map:
+        complete_map[point[2] - height_min][point[0] - row_min][point[1] - col_min] = '#'
+
+    for plane_idx, plane in enumerate(complete_map):
+        print(f'z={plane_idx + height_min}')
+        for row in plane:
+            print(''.join(row))
+        print('\n')
 
 
 if __name__ == "__main__":
