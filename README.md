@@ -4,22 +4,29 @@
 
 ## Getting started
 
-To run the Julia solution for a specific day :
+### Julia
+
+- To run the Julia solution for a specific day :
 ```
 julia solutions/julia/day_15.jl
 ```
 
-To run the Python solution for a specific day :
+- To run the Julia solutions for all days :
+```
+julia solutions/julia/all_days.jl
+```
+
+### Python
+
+- To run the Python solution for a specific day :
 ```
 python3 -m solutions.python.day_15
 ```
 
-To run the Python solutions for all days :
+- To run the Python solutions for all days :
 ```
 python3 -m solutions.python.all_days
 ```
-
-
 
 ## Learnings
 
@@ -37,6 +44,7 @@ struct Rule
 end
 ```
 - Variables of this type can be created as follows: `Rule("vptrwwwnwwn", ':', 8, 10)`
+- Julia accepts a list of [symbols](https://github.com/JuliaLang/julia/blob/master/src/julia-parser.scm) that can be used to define infix operators. Based on their symbol, some user-defined operators (like `∨`) will automatically have the same precedence as `+`, and others (like `∧`) will automatically have the same precedence as `*`.
 
 ### Python
 - `value = dict.get(key, f())`: `f()` is evaluated by default before the lookup in `dict`. 
