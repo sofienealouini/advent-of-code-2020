@@ -2,6 +2,7 @@ import os
 from math import prod
 from typing import Tuple, List, Dict, Set
 
+from solutions.python.common.dict import remove_key_from_mapping, remove_value_from_mapping
 from solutions.python.common.files import INPUTS_FOLDER
 from solutions.python.common.timing import timer
 
@@ -34,16 +35,6 @@ def assign_one_position_to_each_field(possible_fields_by_position: Dict[int, Set
                 possible_fields_by_position = remove_key_from_mapping(pos, possible_fields_by_position)
                 possible_fields_by_position = remove_value_from_mapping(identified_field, possible_fields_by_position)
                 return assign_one_position_to_each_field(possible_fields_by_position, field_positions)
-
-
-def remove_key_from_mapping(key_to_remove: int, mapping: Dict[int, Set[str]]) -> Dict[int, Set[str]]:
-    return {key: mapping[key] for key in mapping if key != key_to_remove}
-
-
-def remove_value_from_mapping(value_to_remove: str, mapping: Dict[int, Set[str]]) -> Dict[int, Set[str]]:
-    for pos in mapping:
-        mapping[pos] = mapping[pos].difference([value_to_remove])
-    return mapping
 
 
 def find_possible_fields_by_position(tickets: List[List[int]],
