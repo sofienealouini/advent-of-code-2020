@@ -1,4 +1,5 @@
 import os
+import re
 from itertools import product
 from typing import List, Tuple, Dict, Union
 
@@ -6,17 +7,44 @@ from solutions.python.common.files import INPUTS_FOLDER, read_list_of_lists
 from solutions.python.common.timing import timer
 
 
-def alter_rule_zero(clean_rules: Dict[int, List[str]], n: int) -> str:
-    pass
+@timer
+def part_2(clean_rules: Dict[int, List[str]], messages: List[str]) -> int:
+    counter = 0
+    for message in messages:
+        for n in range(15, 0, -1):
+            rule_0_regex = rule_zero_new_regex(clean_rules, n)
+            if re.match(rule_0_regex, message):
+                counter += 1
+                continue
+    return counter
+
+
+def rule_zero_new_regex(clean_rules: Dict[int, List[str]], n: int) -> str:
+    rule_8_regex = r'(' + '|'.join(clean_rules[8]) + ')+'
+
+    rule_42_regex = r'(' + '|'.join(clean_rules[42]) + ')'
+    rule_31_regex = r'(' + '|'.join(clean_rules[31]) + ')'
+    rule_11_regex = rule_42_regex + '{' + str(n) + '}' + rule_31_regex + '{' + str(n) + '}'
+
+    rule_0_regex = '^' + rule_8_regex + rule_11_regex + '$'
+    return rule_0_regex
 
 
 @timer
 def part_1(clean_rules: Dict[int, List[str]], messages: List[str]) -> int:
     counter = 0
+    rule_0_regex = rule_zero_regex(clean_rules)
     for message in messages:
-        if message in clean_rules[0]:
+        if re.match(rule_0_regex, message):
             counter += 1
     return counter
+
+
+def rule_zero_regex(clean_rules: Dict[int, List[str]]):
+    rule_8_regex = r'(' + '|'.join(clean_rules[8]) + ')'
+    rule_11_regex = r'(' + '|'.join(clean_rules[11]) + ')'
+    rule_0_regex = '^' + rule_8_regex + rule_11_regex + '$'
+    return rule_0_regex
 
 
 def transform_to_clean_rules(parsed_rules: Dict[int, Union[str, List[Tuple[int, ...]]]]) -> Dict[int, List[str]]:
@@ -66,6 +94,6 @@ if __name__ == "__main__":
     print('Part 1 result :', part_1_result)
 
     # Part 2
-    # part_2_result: int = solve(raw_rules=raw_rules_list, messages=messages_list)
-    # assert part_2_result == 0
-    # print('Part 2 result :', part_2_result)
+    part_2_result: int = part_2(clean_rules=cleaned_rules, messages=messages_list)
+    assert part_2_result == 304
+    print('Part 2 result :', part_2_result)
