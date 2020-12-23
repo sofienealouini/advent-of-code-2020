@@ -54,3 +54,11 @@ end
 - Greatest common divisor : `math.gcd`, Least common multiple : `math.lcm`
 
 - `for key in dict` is more efficient than `for key in dict.keys()`
+
+- Calling `.extendleft()` on a `deque` extends the `deque` from right to left starting from index 0 :
+```
+>>> q = deque([3, 4, 5])
+>>> q.extendleft([1, 2])
+>>> q
+deque([2, 1, 3, 4, 5])
+```
