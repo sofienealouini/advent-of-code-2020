@@ -62,3 +62,5 @@ end
 >>> q
 deque([2, 1, 3, 4, 5])
 ```
+
+- An efficient implementation of [modular exponentiation](https://en.wikipedia.org/wiki/Modular_exponentiation) exists in Python : `pow(x, n, mod)` (more efficient than doing `x ** n % mod`) 🤯
